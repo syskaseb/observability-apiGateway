@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: @project.artifactId@
+
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: eureka-client-route
+            uri: lb://eureka-client
+            predicates:
+              - Path=/**
+
+server:
+  port: 8077
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
