@@ -7,7 +7,7 @@ spring:
       mvc:
         routes:
           - id: eureka-client-route
-            uri: lb://eureka-client
+            uri: lb://blocking-api
             predicates:
               - Path=/**
 
